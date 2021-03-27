@@ -12,6 +12,7 @@ ini_set('user_agent', 'https://github.com/fuktommy/nv-search-rss');
 return [
     'site_top' => 'https://nvsearch.fuktommy.com',
     'search_page' => 'https://www.nicovideo.jp/search/',
+    'tag_search_page' => 'https://www.nicovideo.jp/tag/',
     'watch_page' => 'https://www.nicovideo.jp/watch/',
 
     'search_api' => 'https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search',
@@ -30,6 +31,11 @@ return [
         'premium' => [
             'q' => 'プレミアム限定動画',
             'targets' => 'tagsExact',
+        ],
+        'premium2' => [
+            'q' => 'プレミアム限定動画',
+            'targets' => 'tagsExact',
+            '_offset' => 200,
         ],
     ],
 ];

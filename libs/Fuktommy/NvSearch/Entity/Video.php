@@ -49,11 +49,17 @@ class Video
      */
     public $date;
 
+    /**
+     * @var string[]
+     */
+    public $tags;
+
     public function __construct(array $record)
     {
         $this->id = $record['contentId'];
         $this->title = $record['title'];
         $this->description = $record['description'];
         $this->date = $record['startTime'];
+        $this->tags = explode(' ', $record['tags']);
     }
 }

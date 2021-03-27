@@ -50,17 +50,21 @@ class SearchApi
      */
     public function search(array $query): array
     {
-        $query['fields'] = 'contentId,title,description,startTime';
+        $query['fields'] = 'contentId,title,description,startTime,tags';
         if (! array_key_exists('_sort', $query)) {
             $query['_sort'] = 'startTime';
         }
 
-        $offset = 0;
+        if (array_key_exists('_offset', $query)) {
+            $offset = intval($query['_offset']);
+        } else {
+            $offset = 0;
+        }
         $feedSize = $this->resource->config['feed_size'];
         $limit = min(self::LIMIT, $feedSize);
 
         $videos = [];
-        while ($offset < $feedSize) {
+        while (count($videos) < $feedSize) {
             $v = $this->doSearch($query, $offset, $limit);
             $videos = array_merge($videos, $v);
             if (count($v) < $limit) {
