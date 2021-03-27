@@ -16,6 +16,7 @@ return [
     'watch_page' => 'https://www.nicovideo.jp/watch/',
 
     'search_api' => 'https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search',
+    'context' => 'github.com/fuktommy/nv-search-rss', // max 40 characters
     'cache_time' => 3600,
     'feed_size' => 200,
 

@@ -22,7 +22,7 @@
     <content type="html"><![CDATA[
         {$video->description|replace:"]]>":"" nofilter}
     ]]></content>
-    <published>{$video->date|atom_date_format}</published>
+    <published>{$video->published|atom_date_format}</published>
     <updated>{$video->date|atom_date_format}</updated>
     <id>tag:fuktommy.com,2021:nvsearch.rss/{$video->id}</id>
     {foreach from=$video->tags item=tag}

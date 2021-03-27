@@ -50,7 +50,8 @@ class SearchApi
      */
     public function search(array $query): array
     {
-        $query['fields'] = 'contentId,title,description,startTime,tags';
+        $query['fields'] = 'contentId,title,description,startTime,lastCommentTime,tags';
+        $query['_context'] = $this->resource->config['context'];
         if (! array_key_exists('_sort', $query)) {
             $query['_sort'] = 'startTime';
         }
