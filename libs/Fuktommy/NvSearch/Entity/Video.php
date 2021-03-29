@@ -42,11 +42,6 @@ class Video
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $published;
 
     /**
@@ -63,7 +58,6 @@ class Video
     {
         $this->id = $record['contentId'];
         $this->title = $record['title'];
-        $this->description = $record['description'];
         $this->published = $record['startTime'];
         $this->tags = explode(' ', $record['tags']);
         if (! empty($record['lastCommentTime'])) {

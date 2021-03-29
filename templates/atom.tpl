@@ -18,10 +18,7 @@
   <entry>
     <title>{$video->title|htmlspecialchars_decode|mbtruncate:140}</title>
     <link rel="alternate" href="{$config.watch_page}{$video->id}"/>
-    <summary type="text">{$video->description|strip_tags|htmlspecialchars_decode|mbtruncate:420}</summary>
-    <content type="html"><![CDATA[
-        {$video->description|replace:"]]>":"" nofilter}
-    ]]></content>
+    <summary type="text">{$video->title|htmlspecialchars_decode}</summary>
     <published>{$video->published|atom_date_format}</published>
     <updated>{$video->date|atom_date_format}</updated>
     <id>tag:fuktommy.com,2021:nvsearch.rss/{$video->id}</id>
