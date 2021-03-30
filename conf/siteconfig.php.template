@@ -18,7 +18,7 @@ return [
     'search_api' => 'https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search',
     'context' => 'github.com/fuktommy/nv-search-rss', // max 40 characters
     'cache_time' => 3600,
-    'feed_size' => 200,
+    'feed_size' => 100,
 
     'db_path' => "{$appRoot}/data/nvsearch.sqlite3",
     'log_dir' => "{$appRoot}/logs",
@@ -32,6 +32,11 @@ return [
         'premium' => [
             'q' => 'プレミアム限定動画',
             'targets' => 'tagsExact',
+        ],
+        'premium1' => [
+            'q' => 'プレミアム限定動画',
+            'targets' => 'tagsExact',
+            '_offset' => 100,
         ],
         'premium2' => [
             'q' => 'プレミアム限定動画',
