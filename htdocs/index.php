@@ -40,7 +40,10 @@ class IndexAction implements Action
         $api = new SearchApi($context->getResource());
         $q = $context->get('get', 'q');
         if (empty($q)) {
-            $context->putHeader('HTTP/1.1 400 Bad Request');
+            $context->putHeader('Content-Type', 'text/html; charset=utf-8');
+            $smarty = $context->getSmarty();
+            $smarty->assign('config', $context->config);
+            $smarty->display('list.tpl');
             return;
         }
 
