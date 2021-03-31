@@ -44,7 +44,7 @@ return [
             '_offset' => 200,
         ],
         'anime' => [
-            'q' => 'アニメ',
+            'q' => 'アニメ -dアニメストア',
             'targets' => 'tagsExact',
             'filters' => [
                 'genre.keyword' => ['アニメ'],
@@ -52,6 +52,10 @@ return [
             'extra' => [
                 'chOnly' => true,
             ],
+        ],
+        'danime' => [
+            'q' => 'dアニメストア',
+            'targets' => 'tagsExact',
         ],
     ],
 ];
