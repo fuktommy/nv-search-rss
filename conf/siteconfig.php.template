@@ -49,6 +49,9 @@ return [
             'filters' => [
                 'genre.keyword' => ['アニメ'],
             ],
+            'extra' => [
+                'chOnly' => true,
+            ],
         ],
     ],
 ];

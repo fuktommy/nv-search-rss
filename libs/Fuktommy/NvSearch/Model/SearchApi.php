@@ -34,6 +34,7 @@ use Fuktommy\WebIo\Resource;
 class SearchApi
 {
     const LIMIT = 100;
+    const MAX_OFFSET = 900;
 
     /**
      * @var Fuktommy\WebIo\Resource
@@ -67,11 +68,20 @@ class SearchApi
         $videos = [];
         while (count($videos) < $feedSize) {
             $v = $this->doSearch($query, $offset, $limit);
+            $isLastPage = count($v) < $limit;
+            if (! empty($query['extra']['chOnly'])) {
+                $v = array_filter($v, function($u) {
+                    return preg_match('/^so/', $u->id);
+                });
+            }
             $videos = array_merge($videos, $v);
-            if (count($v) < $limit) {
+            if ($isLastPage) {
                 break;
             }
             $offset += $limit;
+            if ($offset > self::MAX_OFFSET) {
+                break;
+            }
         }
         return array_slice($videos, 0, $feedSize);
     }
@@ -81,6 +91,7 @@ class SearchApi
      */
     private function doSearch(array $query, $offset, $limit): array
     {
+        unset($query['extra']);
         $query['_offset'] = $offset;
         $query['_limit'] = $limit;
         $q = http_build_query($query);
