@@ -57,5 +57,10 @@ return [
             'q' => 'dアニメストア',
             'targets' => 'tagsExact',
         ],
+        'danime1' => [
+            'q' => 'dアニメストア',
+            'targets' => 'tagsExact',
+            '_offset' => 100,
+        ],
     ],
 ];
