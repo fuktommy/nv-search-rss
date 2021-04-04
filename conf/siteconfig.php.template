@@ -20,6 +20,9 @@ return [
     'cache_time' => 3600,
     'feed_size' => 100,
 
+    'api_document' => 'https://site.nicovideo.jp/search-api-docs/snapshot',
+    'api_document_md' => 'https://site.nicovideo.jp/search-api-docs/markdown/snapshot.md',
+
     'db_path' => "{$appRoot}/data/nvsearch.sqlite3",
     'log_dir' => "{$appRoot}/logs",
 
