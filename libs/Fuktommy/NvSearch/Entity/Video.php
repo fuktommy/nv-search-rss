@@ -65,5 +65,9 @@ class Video
         } else {
             $this->date = $record['startTime'];
         }
+        $threshold = date('Y-m-d\T00:00:00P', time() - 2 * 24 * 60 * 60);
+        if (strtotime($this->date) < strtotime($threshold)) {
+            $this->date = $threshold;
+        }
     }
 }
