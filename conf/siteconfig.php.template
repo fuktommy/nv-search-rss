@@ -70,5 +70,24 @@ return [
             'targets' => 'tagsExact',
             '_offset' => 200,
         ],
+        'softwaretalk' => [
+            'q' => 'ソフトウェアトーク OR voiceroid',
+            'targets' => 'title,tags,description',
+        ],
+        'softwaretalk1' => [
+            'q' => 'ソフトウェアトーク OR voiceroid',
+            'targets' => 'title,tags,description',
+            '_offset' => 100,
+        ],
+        'softwaretalk2' => [
+            'q' => 'ソフトウェアトーク OR voiceroid',
+            'targets' => 'title,tags,description',
+            '_offset' => 200,
+        ],
+        'softwaretalk3' => [
+            'q' => 'ソフトウェアトーク OR voiceroid',
+            'targets' => 'title,tags,description',
+            '_offset' => 300,
+        ],
     ],
 ];
