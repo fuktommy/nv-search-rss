@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2012-2021 Satoshi Fukutomi <info@fuktommy.com>.
+ * Copyright (c) 2012-2022 Satoshi Fukutomi <info@fuktommy.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +51,7 @@ class SearchApi
      */
     public function search(array $query): array
     {
-        $query['fields'] = 'contentId,title,startTime,lastCommentTime,tags';
+        $query['fields'] = 'contentId,title,startTime,lastCommentTime,tags,thumbnailUrl';
         $query['_context'] = $this->resource->config['context'];
         if (! array_key_exists('_sort', $query)) {
             $query['_sort'] = 'startTime';

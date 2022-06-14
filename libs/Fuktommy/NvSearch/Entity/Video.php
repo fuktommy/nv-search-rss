@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2021 Satoshi Fukutomi <info@fuktommy.com>.
+ * Copyright (c) 2021,2022 Satoshi Fukutomi <info@fuktommy.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,11 +54,17 @@ class Video
      */
     public $tags;
 
+    /**
+     * @var string
+     */
+    public $thumbnailUrl;
+
     public function __construct(array $record)
     {
         $this->id = $record['contentId'];
         $this->title = $record['title'];
         $this->published = $record['startTime'];
+        $this->thumbnailUrl = $record['thumbnailUrl'];
         $this->tags = explode(' ', $record['tags']);
         if (! empty($record['lastCommentTime'])) {
             $this->date = $record['lastCommentTime'];
