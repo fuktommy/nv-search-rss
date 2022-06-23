@@ -35,16 +35,25 @@ return [
         'premium' => [
             'q' => 'プレミアム限定動画',
             'targets' => 'tagsExact',
+            'extra' => [
+                'modifyDate' => true,
+            ],
         ],
         'premium1' => [
             'q' => 'プレミアム限定動画',
             'targets' => 'tagsExact',
             '_offset' => 100,
+            'extra' => [
+                'modifyDate' => true,
+            ],
         ],
         'premium2' => [
             'q' => 'プレミアム限定動画',
             'targets' => 'tagsExact',
             '_offset' => 200,
+            'extra' => [
+                'modifyDate' => true,
+            ],
         ],
         'anime' => [
             'q' => 'アニメ -dアニメストア',
@@ -54,21 +63,31 @@ return [
             ],
             'extra' => [
                 'chOnly' => true,
+                'modifyDate' => true,
             ],
         ],
         'danime' => [
             'q' => 'dアニメストア',
             'targets' => 'tagsExact',
+            'extra' => [
+                'modifyDate' => true,
+            ],
         ],
         'danime1' => [
             'q' => 'dアニメストア',
             'targets' => 'tagsExact',
             '_offset' => 100,
+            'extra' => [
+                'modifyDate' => true,
+            ],
         ],
         'danime2' => [
             'q' => 'dアニメストア',
             'targets' => 'tagsExact',
             '_offset' => 200,
+            'extra' => [
+                'modifyDate' => true,
+            ],
         ],
         'softwaretalk' => [
             'q' => 'ソフトウェアトーク OR voiceroid',

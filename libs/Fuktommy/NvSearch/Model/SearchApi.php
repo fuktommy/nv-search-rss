@@ -96,6 +96,7 @@ class SearchApi
             $t->modify("-{$query['extra']['withinDays']} days")->setTime(0, 0, 0);
             $query = $this->addFilter($query, 'startTime', 'gte', $t->format(\DateTimeInterface::ATOM));
         }
+        $modifyDate = ! empty($query['extra']['modifyDate']);
         unset($query['extra']);
         $query['_offset'] = $offset;
         $query['_limit'] = $limit;
@@ -115,7 +116,7 @@ class SearchApi
 
         $videos = [];
         foreach ($result['data'] as $item) {
-            $videos[] = new Video($item);
+            $videos[] = new Video($item, $modifyDate);
         }
 
         return $videos;

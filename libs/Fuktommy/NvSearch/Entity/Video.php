@@ -59,21 +59,23 @@ class Video
      */
     public $thumbnailUrl;
 
-    public function __construct(array $record)
+    public function __construct(array $record, $modifyDate)
     {
         $this->id = $record['contentId'];
         $this->title = $record['title'];
         $this->published = $record['startTime'];
         $this->thumbnailUrl = $record['thumbnailUrl'];
         $this->tags = explode(' ', $record['tags']);
-        if (! empty($record['lastCommentTime'])) {
-            $this->date = $record['lastCommentTime'];
-        } else {
-            $this->date = $record['startTime'];
-        }
-        $threshold = date('Y-m-d\T00:00:00P', time() - 2 * 24 * 60 * 60);
-        if (strtotime($this->date) < strtotime($threshold)) {
-            $this->date = $threshold;
+
+        $this->date = $record['startTime'];
+        if ($modifyDate) {
+            if (! empty($record['lastCommentTime'])) {
+                $this->date = $record['lastCommentTime'];
+            }
+            $threshold = date('Y-m-d\T00:00:00P', time() - 2 * 24 * 60 * 60);
+            if (strtotime($this->date) < strtotime($threshold)) {
+                $this->date = $threshold;
+            }
         }
     }
 }
