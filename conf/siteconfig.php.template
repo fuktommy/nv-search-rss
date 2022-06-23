@@ -73,21 +73,33 @@ return [
         'softwaretalk' => [
             'q' => 'ソフトウェアトーク OR voiceroid',
             'targets' => 'title,tags,description',
+            'extra' => [
+                'withinDays' => 1,
+            ],
         ],
         'softwaretalk1' => [
             'q' => 'ソフトウェアトーク OR voiceroid',
             'targets' => 'title,tags,description',
             '_offset' => 100,
+            'extra' => [
+                'withinDays' => 1,
+            ],
         ],
         'softwaretalk2' => [
             'q' => 'ソフトウェアトーク OR voiceroid',
             'targets' => 'title,tags,description',
             '_offset' => 200,
+            'extra' => [
+                'withinDays' => 1,
+            ],
         ],
         'softwaretalk3' => [
             'q' => 'ソフトウェアトーク OR voiceroid',
             'targets' => 'title,tags,description',
             '_offset' => 300,
+            'extra' => [
+                'withinDays' => 1,
+            ],
         ],
     ],
 ];

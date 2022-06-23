@@ -91,6 +91,11 @@ class SearchApi
      */
     private function doSearch(array $query, $offset, $limit): array
     {
+        if (! empty($query['extra']['withinDays'])) {
+            $t = new \DateTime();
+            $t->modify("-{$query['extra']['withinDays']} days")->setTime(0, 0, 0);
+            $query = $this->addFilter($query, 'startTime', 'gte', $t->format(\DateTimeInterface::ATOM));
+        }
         unset($query['extra']);
         $query['_offset'] = $offset;
         $query['_limit'] = $limit;
@@ -114,5 +119,16 @@ class SearchApi
         }
 
         return $videos;
+    }
+
+    private function addFilter(array $query, $key, $operator, $value): array {
+        if (! isset($query['filters'])) {
+            $query['filters'] = [];
+        }
+        if (! isset($query['filters'][$key])) {
+            $query['filters'][$key] = [];
+        }
+        $query['filters'][$key][$operator] = $value;
+        return $query;
     }
 }
