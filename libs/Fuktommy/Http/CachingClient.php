@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2020 Satoshi Fukutomi <info@fuktommy.com>.
+ * Copyright (c) 2020 Satoshi Fukutomi.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +52,11 @@ class CachingClient
             $log->info("fetching $url");
             $data = file_get_contents($url);
             if (empty($data)) {
-                $log->warning('failed to fetch: ' . implode('; ', $http_response_header));
+                $errors = 'error';
+                if (!empty($http_response_header)) {
+                    $errors = implode('; ', $http_response_header);
+                }
+                $log->warning('failed to fetch: ' . $errors);
                 $data = '';
             }
             $cache->set($url, $data, $cacheTime);
