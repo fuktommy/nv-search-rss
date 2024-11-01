@@ -120,5 +120,13 @@ return [
                 'withinDays' => 1,
             ],
         ],
+        'aikido' => [
+            'q' => '合気道',
+            'targets' => 'tagsExact',
+        ],
+        'tanuki' => [
+            'q' => 'タヌキ OR 狸',
+            'targets' => 'tagsExact',
+        ],
     ],
 ];
